@@ -21,7 +21,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("contact")
-@CrossOrigin
 public class ContactController {
     
     @Autowired
