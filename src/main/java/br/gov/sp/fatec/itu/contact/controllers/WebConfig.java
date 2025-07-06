@@ -16,6 +16,6 @@ public class WebConfig implements WebMvcConfigurer {
             .allowedOrigins("*") // Permite requisições da sua aplicação Angular
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Libera os métodos HTTP necessários
             .allowedHeaders("*") // Libera todos os cabeçalhos
-            .allowCredentials(false);
+            //.allowCredentials(false);
     }
 }
