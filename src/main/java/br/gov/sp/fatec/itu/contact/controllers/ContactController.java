@@ -20,32 +20,28 @@ import br.gov.sp.fatec.itu.contact.services.ContactService;
 
 @RestController
 @RequestMapping("contact")
-@CrossOrigin
+@CrossOrigin("https://main.d1aacktjcmxln.amplifyapp.com")
 public class ContactController {
     
     @Autowired
     private ContactService service;
     
     @GetMapping
-    @CrossOrigin
     public ResponseEntity<List<Contact>> getContacts() {
         return ResponseEntity.ok(service.getContacts());
     }
 
     @PostMapping
-    @CrossOrigin
     public ResponseEntity<Contact> saveContacts(@RequestBody Contact contact) {
         return ResponseEntity.created(null).body(service.saveContact(contact));
     }
     
     @PutMapping("/{id}")
-    @CrossOrigin
     public ResponseEntity<Contact> updateContact(@PathVariable Long id, @RequestBody Contact contactDetails) {
         return ResponseEntity.ok(service.updateContact(id, contactDetails));
     }
 
     @DeleteMapping("/{id}")
-    @CrossOrigin
     public ResponseEntity<Void> deleteContact(@PathVariable Long id) {
         service.deleteContact(id);
         return ResponseEntity.noContent().build();
