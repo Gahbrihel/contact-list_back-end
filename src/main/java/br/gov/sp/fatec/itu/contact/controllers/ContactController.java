@@ -20,7 +20,7 @@ import br.gov.sp.fatec.itu.contact.services.ContactService;
 
 @RestController
 @RequestMapping("contact")
-@CrossOrigin("*")
+@CrossOrigin
 public class ContactController {
     
     @Autowired
