@@ -1,6 +1,8 @@
 package br.gov.sp.fatec.itu.contact.controllers;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,10 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.gov.sp.fatec.itu.contact.entities.Contact;
-
 import br.gov.sp.fatec.itu.contact.services.ContactService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("contact")
@@ -28,21 +27,25 @@ public class ContactController {
     private ContactService service;
     
     @GetMapping
+    @CrossOrigin
     public ResponseEntity<List<Contact>> getContacts() {
         return ResponseEntity.ok(service.getContacts());
     }
 
     @PostMapping
+    @CrossOrigin
     public ResponseEntity<Contact> saveContacts(@RequestBody Contact contact) {
         return ResponseEntity.created(null).body(service.saveContact(contact));
     }
     
     @PutMapping("/{id}")
+    @CrossOrigin
     public ResponseEntity<Contact> updateContact(@PathVariable Long id, @RequestBody Contact contactDetails) {
         return ResponseEntity.ok(service.updateContact(id, contactDetails));
     }
 
     @DeleteMapping("/{id}")
+    @CrossOrigin
     public ResponseEntity<Void> deleteContact(@PathVariable Long id) {
         service.deleteContact(id);
         return ResponseEntity.noContent().build();
