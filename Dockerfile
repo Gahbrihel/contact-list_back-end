@@ -8,5 +8,5 @@ RUN mvn -f /home/app/student-backend/pom.xml clean package
 FROM alpine/java:21-jdk
 COPY --from=build /home/app/student-backend/target/*.jar /usr/local/lib/student-backend.jar
 VOLUME /tmp
-EXPOSE 80:8080
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/usr/local/lib/student-backend.jar"]
